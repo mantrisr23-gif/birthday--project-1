@@ -302,7 +302,8 @@ const KnifeSVG = ({ phase }: { phase: Phase }) => {
       <rect x="18" y="55" width="4" height="70" fill="white" opacity="0.3" className="animate-pulse" />
     </svg>
   </motion.div>
-);
+  );
+};
 
 const CakeCard = ({ cake, index, onSelect }: { cake: CakeOption; index: number; onSelect: () => void }) => {
   const isMobile = useIsMobile();

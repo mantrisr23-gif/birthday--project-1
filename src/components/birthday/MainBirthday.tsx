@@ -40,7 +40,8 @@ export const MainBirthday = () => {
   const [emojis, setEmojis] = useState<{ id: number; emoji: string; x: number }[]>([]);
   const [cakeClicks, setCakeClicks] = useState(0);
   const [megaSurprise, setMegaSurprise] = useState(false);
-  const [giftOpened, setGiftOpened] = useState(false);
+  const [giftStage, setGiftStage] = useState<'closed' | 'party' | 'open'>('closed');
+  const giftTimerRef = useRef<number | null>(null);
   
   const { fireConfetti, fireCannon, fireStars } = useConfetti();
   const { playReveal, playPop, playBoom, playWhoosh, setBgVolume } = useSoundManager();
@@ -92,6 +93,24 @@ export const MainBirthday = () => {
     mouseX.set(moveX);
     mouseY.set(moveY);
   };
+
+  const openGift = () => {
+    if (giftStage !== 'closed') return;
+    setGiftStage('party');
+    playBoom();
+    fireConfetti();
+    if (giftTimerRef.current) window.clearTimeout(giftTimerRef.current);
+    giftTimerRef.current = window.setTimeout(() => {
+      setGiftStage('open');
+      giftTimerRef.current = null;
+    }, 1800);
+  };
+
+  useEffect(() => {
+    return () => {
+      if (giftTimerRef.current) window.clearTimeout(giftTimerRef.current);
+    };
+  }, []);
 
   useEffect(() => {
     setBgVolume(0.4);
@@ -415,7 +434,7 @@ export const MainBirthday = () => {
         <div className="max-w-6xl mx-auto">
           <motion.button
             type="button"
-            onClick={() => { setGiftOpened(true); playBoom(); }}
+            onClick={openGift}
             whileHover={shouldAnimate ? { scale: 1.02 } : undefined}
             whileTap={{ scale: 0.98 }}
             transition={{ duration: 0.3 }}
@@ -441,13 +460,13 @@ export const MainBirthday = () => {
       </section>
 
       <AnimatePresence>
-        {giftOpened && (
+        {giftStage !== 'closed' && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             className="fixed inset-0 z-[100] flex items-center justify-center bg-black/95 backdrop-blur-3xl p-6"
-            onClick={() => setGiftOpened(false)}
+            onClick={() => setGiftStage('closed')}
           >
             <motion.div
               initial={{ scale: 0.8, opacity: 0 }}
@@ -457,23 +476,36 @@ export const MainBirthday = () => {
               className="relative w-full max-w-3xl rounded-[2.5rem] border border-white/10 bg-black/90 p-8 shadow-[0_30px_80px_-30px_rgba(0,0,0,0.9)]"
               onClick={(e) => e.stopPropagation()}
             >
-              <div className="flex flex-col gap-6 text-center">
-                <div className="text-5xl">🎉</div>
-                <h3 className="text-4xl md:text-6xl font-black text-white">Surprise Unlocked!</h3>
-                <p className="text-lg md:text-xl text-foreground/70 max-w-2xl mx-auto">
-                  First the party sparkled, then the gift arrived. Your secret code is built from your relationship theme, your favorite interests, and a little playful mischief.
-                </p>
-                <div className="mx-auto inline-flex rounded-full bg-primary/10 px-6 py-4 text-2xl font-semibold text-primary shadow-[0_20px_60px_-30px_rgba(255,255,255,0.4)]">
-                  {specialCode}
+              {giftStage === 'party' ? (
+                <div className="flex flex-col gap-6 text-center">
+                  <div className="text-5xl">🎂🎉✨</div>
+                  <h3 className="text-4xl md:text-6xl font-black text-white">First, the party!</h3>
+                  <p className="text-lg md:text-xl text-foreground/70 max-w-2xl mx-auto">
+                    Cake is on the table, the lights are sparkling, and the celebration is warming up. Your gift reveal arrives in just a moment.
+                  </p>
+                  <div className="mx-auto inline-flex rounded-full bg-white/10 px-6 py-4 text-2xl font-semibold text-white shadow-[0_20px_60px_-30px_rgba(255,255,255,0.4)]">
+                    Party first, gift next...
+                  </div>
                 </div>
-                <button
-                  type="button"
-                  onClick={() => { setGiftOpened(false); fireConfetti(); }}
-                  className="mx-auto rounded-full bg-primary px-10 py-4 text-xl font-black text-black transition-all hover:scale-105"
-                >
-                  Close Gift
-                </button>
-              </div>
+              ) : (
+                <div className="flex flex-col gap-6 text-center">
+                  <div className="text-5xl">🎉</div>
+                  <h3 className="text-4xl md:text-6xl font-black text-white">Surprise Unlocked!</h3>
+                  <p className="text-lg md:text-xl text-foreground/70 max-w-2xl mx-auto">
+                    First the party sparkled, then the gift arrived. Your secret code is built from your relationship theme, your favorite interests, and a little playful mischief.
+                  </p>
+                  <div className="mx-auto inline-flex rounded-full bg-primary/10 px-6 py-4 text-2xl font-semibold text-primary shadow-[0_20px_60px_-30px_rgba(255,255,255,0.4)]">
+                    {specialCode}
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => { setGiftStage('closed'); fireConfetti(); }}
+                    className="mx-auto rounded-full bg-primary px-10 py-4 text-xl font-black text-black transition-all hover:scale-105"
+                  >
+                    Close Gift
+                  </button>
+                </div>
+              )}
               <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/90 to-transparent" />
             </motion.div>
           </motion.div>
