@@ -41,7 +41,9 @@ class AudioManager {
         };
         document.addEventListener('click', playOnInteraction);
       });
-    } catch { }
+    } catch (e) {
+      console.debug("Autoplay failed or blocked:", e);
+    }
   }
 
   fadeOutBgMusic(duration = 2000) {
@@ -70,7 +72,9 @@ class AudioManager {
       const audio = new Audio(AUDIO_URLS[type]);
       audio.volume = volume;
       audio.play().catch(() => { });
-    } catch { }
+    } catch (e) {
+      console.debug("Audio effect playback failed:", e);
+    }
   }
 
   stop() {

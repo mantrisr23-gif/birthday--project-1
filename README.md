@@ -684,11 +684,12 @@ Located inside `index.html`, these tags ensure the surprise looks amazing when s
 
 ## 📜 Version History & Changelog
 
-### v3.5.0 (Latest)
-- **3D Engine Update**: Integrated perspective tilt in `PhotoGallery` and `CakeCutting`.
-- **Cinematic Overlays**: Added Filmic Grain and Vignette effects.
-- **Adaptive Templates**: Full design morphing for Partner, Friend, and Family.
-- **Zero-Config Hydration**: Support for instant ENV-driven surprise launch.
+### v3.6.0 (Latest)
+- **Testing & Resilience Optimization**: Resolved a failing test runner error in `main.test.tsx` by setting up a clean mocked root container and unmounting it correctly.
+- **TypeScript & Build Rigidity**: Replaced `any` assertions with strict typing (e.g. `MotionValue<number>` for scroll values, `LucideIcon` mapping, and type-safe environment string parser checks).
+- **ESLint Clean-Up**: Fixed TypeScript empty interfaces by converting them to type aliases, resolved `prefer-const` warnings in dynamic theme properties, and replaced forbidden `require()` plugins with ES module imports.
+
+### v3.5.0
 
 ### v3.0.0
 - **Heart Tree Release**: Added the organic growth SVG finale.

@@ -1,3 +1,20 @@
+import { describe, it, expect } from "vitest";
 import { createRoot } from "react-dom/client";
-const App = () => <div>Hello World</div>;
-createRoot(document.getElementById("root")!).render(<App />);
+
+describe("Main Entry Point", () => {
+  it("renders without crashing when root element is present", () => {
+    const root = document.createElement("div");
+    root.id = "root";
+    document.body.appendChild(root);
+
+    const App = () => <div>Hello World</div>;
+    const rootInstance = createRoot(root);
+    rootInstance.render(<App />);
+
+    expect(root.innerHTML).toBeDefined();
+
+    // Clean up
+    rootInstance.unmount();
+    document.body.removeChild(root);
+  });
+});

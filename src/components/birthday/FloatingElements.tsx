@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform, MotionValue } from 'framer-motion';
 import { useBirthdayStore } from '@/features/core/store/useBirthdayStore';
 
 interface FloatingItem {
@@ -77,7 +77,7 @@ export const FloatingElements = () => {
   );
 };
 
-const ParallaxItem = ({ item, scrollY }: { item: FloatingItem; scrollY: any }) => {
+const ParallaxItem = ({ item, scrollY }: { item: FloatingItem; scrollY: MotionValue<number> }) => {
   const y = useTransform(scrollY, [0, 2000], [0, -item.depth * 400]);
 
   return (
