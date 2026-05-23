@@ -63,15 +63,9 @@ Copy `.env.example` to `.env.local`, change values, restart the dev server, and 
 
 <div align="center">
   <figure>
-    <img src="assets/previews/feature-showcase.png" alt="Birthday Bloom feature showcase" style="max-width:100%;height:auto;border-radius:18px;box-shadow:0 24px 68px rgba(0,0,0,0.28);" />
-    <figcaption><em>Feature showcase highlighting interactive cake, memory gallery, family templates, and validation workflows.</em></figcaption>
-  </figure>
-  <p>
-    <img src="assets/icons/icon-rocket.png" alt="Fast setup icon" width="64" height="64" style="margin:0 12px;" />
-    <img src="assets/icons/icon-shield.png" alt="Secure environment icon" width="64" height="64" style="margin:0 12px;" />
-    <img src="assets/icons/icon-sparkle.png" alt="Cinematic sparkles icon" width="64" height="64" style="margin:0 12px;" />
-  </p>
-  <p><em>Fast dev velocity, secure env configuration, and cinematic storytelling — all part of the premium UX.</em></p>
+    <img src="src\assets\why.png" alt="Birthday Bloom feature showcase" style="max-width:100%;height:auto;border-radius:18px;box-shadow:0 24px 68px rgba(0,0,0,0.28);" />
+    <figcaption><em>Read more to know more.</em></figcaption>
+
 </div>
 
 ---
@@ -356,6 +350,12 @@ If the intro is too slow or too fast:
 4. Modify the `TypeWriter` speed props to `speed={30}` for extremely fast typing, or `speed={120}` for dramatic, slow typing.
 
 ---
+<div align="center">
+  <figure>
+    <img src="src\assets\env.png" alt="Birthday Bloom environment variables information." style="max-width:100%;height:auto;border-radius:18px;box-shadow:0 24px 72px rgba(0,0,0,0.24);" />
+    <figcaption><em>Full env/secrets configuration guide.</em></figcaption>
+  </figure>
+</div>
 
 ## 🔐 Environment Variables & Secret Configuration Guide
 
@@ -514,7 +514,7 @@ Handles HTML5 Audio instances without cluttering the DOM with invisible `<audio>
 <div align="center">
   <figure>
     <img src="src/assets/faq.png" alt="Birthday Bloom troubleshooting guide" style="max-width:100%;height:auto;border-radius:18px;box-shadow:0 24px 72px rgba(0,0,0,0.24);" />
-    <figcaption><em>Interactive Cake Cutting stage captured directly from the app experience.</em></figcaption>
+    <figcaption><em>All the info about the faq.</em></figcaption>
   </figure>
 </div>
 
@@ -853,6 +853,12 @@ What started as a solo vision is now growing into a community-driven movement to
 > 🌐 Make the internet more beautiful, expressive, and unforgettable.
 
 ---
+<div align="center">
+  <figure>
+    <img src="src\assets\contribute.png" alt="Birthday Bloom how to contribute info" style="max-width:100%;height:auto;border-radius:18px;box-shadow:0 26px 74px rgba(0,0,0,0.26);" />
+    <figcaption><em>Check out the contribution guidelines to get started!</em></figcaption>
+  </figure>
+</div>
 
 ## 🏁 Final Sign-off
 
