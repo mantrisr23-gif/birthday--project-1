@@ -1,20 +1,18 @@
 import { describe, it, expect } from "vitest";
 import { createRoot } from "react-dom/client";
+import { CorporateRoast } from "./components/CorporateRoast";
 
-describe("Main Entry Point", () => {
-  it("renders without crashing when root element is present", () => {
+describe("Corporate Roast Component", () => {
+  it("renders the CorporateRoast component without crashing", () => {
     const root = document.createElement("div");
-    root.id = "root";
-    document.body.appendChild(root);
-
-    const App = () => <div>Hello World</div>;
     const rootInstance = createRoot(root);
-    rootInstance.render(<App />);
+    
+    // Render your actual component instead of 'Hello World'
+    rootInstance.render(<CorporateRoast />);
 
-    expect(root.innerHTML).toBeDefined();
-
-    // Clean up
+    // Verify the component rendered content
+    expect(root.innerHTML).toContain("Ayush");
+    
     rootInstance.unmount();
-    document.body.removeChild(root);
   });
 });
