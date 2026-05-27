@@ -1,38 +1,17 @@
 /**
- * 🌸 BIRTHDAY BLOOM - EMOTIONAL NARRATIVE TEMPLATES
+ * BIRTHDAY BLOOM - CORPORATE TROLL ENGINE
  * -----------------------------------------
- * Enhanced Configuration System for Birthday Bloom v2.1
  */
 
-export type Gender = "male" | "female" | "other";
-export type Relationship = "partner" | "friend" | "family" | "colleague" | "mentor";
-export type TemplateTheme = "romantic" | "fun" | "energetic" | "elegant" | "playful" | "nostalgic" | "corporate";
-export type AgeGroup = "teen" | "young-adult" | "adult" | "senior";
+export type TemplateTheme = "romantic" | "fun" | "corporate";
 
 export interface BirthdayConfig {
   name: string;
-  age: number;
-  gender: Gender;
-  relationship: Relationship;
   theme: TemplateTheme;
   customMessage: string;
-  favoriteColor: string;
-  favoriteEmoji: string[];
-  photos: string[];
-  backgroundMusic?: string;
-  soundEffects: boolean;
-  animationIntensity: "low" | "medium" | "high";
-  particleEffects: boolean;
-  showSkipButton: boolean;
-  duration: "quick" | "normal" | "extended";
-  reducedMotion: boolean;
-  textSize: "small" | "normal" | "large";
-  highContrast: boolean;
 }
 
 export const EMOTIONAL_LETTERS: Record<string, any> = {
-  // ... Keep all existing letters (partner, friend, love, family, etc.) 
-  // and append the corporate roast at the end:
   corporate: {
     colleague: `To Ayush, Our Favorite Part-Time Office Resident,
 
@@ -48,7 +27,6 @@ The Management`,
 };
 
 export const TEMPLATE_PRESETS: Record<string, any> = {
-  // ... Keep all existing romantic/fun/family presets and add the corporate one:
   corporate: {
     colleague: {
       adult: {
@@ -63,33 +41,6 @@ export const TEMPLATE_PRESETS: Record<string, any> = {
 
 export const DEFAULT_CONFIG: BirthdayConfig = {
   name: "Ayush",
-  age: 25,
-  gender: "male",
-  relationship: "colleague",
   theme: "corporate",
   customMessage: "Happy Birthday! Still clocking in at 10 AM, I see... ☕",
-  favoriteColor: "#333333",
-  favoriteEmoji: ["☕", "😴", "📉", "💻", "⏰"],
-  photos: [
-    "https://images.unsplash.com/photo-1530103043960-ef38714abb15",
-  ],
-  soundEffects: true,
-  animationIntensity: "high",
-  particleEffects: true,
-  showSkipButton: true,
-  duration: "normal",
-  reducedMotion: false,
-  textSize: "normal",
-  highContrast: false,
-};
-
-export const COLOR_PALETTES: Record<string, any> = {
-  // ... Keep existing palettes and add the corporate one:
-  corporate: {
-    primary: "#333333",
-    secondary: "#555555",
-    accent: "#FF4500",
-    light: "#F0F0F0",
-    dark: "#1A1A1A",
-  },
 };
