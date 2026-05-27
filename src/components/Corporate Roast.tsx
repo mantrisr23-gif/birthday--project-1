@@ -29,7 +29,10 @@ export const CorporateRoast: React.FC = () => {
                 <div className="p-2 border border-border rounded">
                     <p className="text-[10px] uppercase tracking-widest">Nap Frequency</p>
                     <p className="text-xl font-black">{ROAST_CONFIG.roastStats.napFrequency}</p>
-                </div>
+                </div>// Inside CorporateRoast.tsx
+<div className="animate-screen-shake animate-pulse-glow border-2 border-primary p-6">
+   {/* Your Troll Content Here */}
+</div>
             </div>
         </div>
     );
