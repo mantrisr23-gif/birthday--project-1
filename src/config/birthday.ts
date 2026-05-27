@@ -1,5 +1,5 @@
 export const ROAST_CONFIG = {
-    employeeName: import.meta.env.VITE_BIRTHDAY_NAME
+    employeeName: import.meta.env.VITE_BIRTHDAY_NAME,
     jobTitle: "Junior Corporate Athlete",
     officeHours: "10:00 AM - 5:00 PM",
     roastStats: {
