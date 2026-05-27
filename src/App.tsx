@@ -31,9 +31,9 @@ function App() {
         <footer className="mt-24 text-[10px] text-muted-foreground uppercase tracking-widest opacity-60">
           Powered by Corporate Troll Logic © 2026
         </footer>
-        
+         </div>className="corporate-troll-mode">
       </main>
-    </div>
+    </div
   );
 }
 
