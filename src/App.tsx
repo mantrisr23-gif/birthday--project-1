@@ -4,12 +4,12 @@ import { CorporateRoast } from './components/CorporateRoast';
 /**
  * App.tsx
  * The entry-level orchestration component for the Birthday Bloom application.
- * It manages the global layout and renders the primary feature components.
+ * Manages the global layout and the Corporate Troll mode wrapper.
  */
 
 function App() {
   return (
-    <div className="min-h-screen bg-background text-foreground transition-colors duration-300">
+    <div className="corporate-troll-mode min-h-screen bg-background text-foreground transition-colors duration-300">
       <main className="container mx-auto px-4 py-12 md:py-20 max-w-4xl flex flex-col items-center">
         
         {/* Header Section */}
@@ -31,9 +31,8 @@ function App() {
         <footer className="mt-24 text-[10px] text-muted-foreground uppercase tracking-widest opacity-60">
           Powered by Corporate Troll Logic © 2026
         </footer>
-         </div>className="corporate-troll-mode">
       </main>
-    </div
+    </div>
   );
 }
 
