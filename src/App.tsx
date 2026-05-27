@@ -1,43 +1,40 @@
+import React from 'react';
+import { CorporateRoast } from './components/CorporateRoast';
+
 /**
- * 🌸 BIRTHDAY BLOOM - APP CORE
- * Authored by: NABORAJ SARKAR
+ * App.tsx
+ * The entry-level orchestration component for the Birthday Bloom application.
+ * It manages the global layout and renders the primary feature components.
  */
 
-import { Toaster } from "@/components/ui/toaster";
-import { Toaster as Sonner } from "@/components/ui/sonner";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Index from "./pages/Index";
-import NotFound from "./pages/NotFound";
-import { SparkleEffect } from "./components/birthday/SparkleEffect";
-import { CelebrationOverlay } from "./components/birthday/CelebrationOverlay";
-import { PartyElements } from "./components/birthday/PartyElements";
-import { Balloons } from "./components/birthday/Balloons";
-import { ErrorBoundary } from "./components/ErrorBoundary";
+function App() {
+  return (
+    <div className="min-h-screen bg-background text-foreground transition-colors duration-300">
+      <main className="container mx-auto px-4 py-12 md:py-20 max-w-4xl flex flex-col items-center">
+        
+        {/* Header Section */}
+        <header className="mb-12 text-center animate-in fade-in zoom-in duration-700">
+          <h1 className="text-5xl md:text-7xl font-display font-black text-primary tracking-tighter mb-4">
+            Birthday Bloom
+          </h1>
+          <p className="text-muted-foreground text-lg uppercase tracking-widest">
+            Junior Roast System 2.0
+          </p>
+        </header>
 
-const queryClient = new QueryClient();
+        {/* Core Content Area */}
+        <div className="w-full">
+          <CorporateRoast />
+        </div>
 
-const App = () => (
-  <ErrorBoundary>
-    <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        <SparkleEffect />
-        <PartyElements />
-        <Balloons count={6} />
-        <CelebrationOverlay />
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Index />} />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </BrowserRouter>
-      </TooltipProvider>
-    </QueryClientProvider>
-  </ErrorBoundary>
-);
+        {/* Footer */}
+        <footer className="mt-24 text-[10px] text-muted-foreground uppercase tracking-widest opacity-60">
+          Powered by Corporate Troll Logic © 2026
+        </footer>
+        
+      </main>
+    </div>
+  );
+}
 
 export default App;
