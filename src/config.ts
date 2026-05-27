@@ -3,13 +3,13 @@
  * This file is for beginners who don't want to use Environment Variables.
  */
 export const config = {
-    // Method 2: Fallback Name (Only used if VITE_BIRTHDAY_NAME is not set in .env)
-    birthdayName: "YOU",
+    // Fallback Name: Now set to Ayush for the troll project
+    birthdayName: "Ayush",
 
-    // Method 2: Fallback Photos (Only used if assets/photoX.jpg are missing)
+    // Fallback Photos: You can replace these with office-themed or "corporate" imagery
     photos: [
-        "https://images.unsplash.com/photo-1530103043960-ef38714abb15",
-        "https://images.unsplash.com/photo-1464349095431-e9a21285b5f3",
-        "https://images.unsplash.com/photo-1513151233558-d860c5398176"
+        "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2", // Office environment
+        "https://images.unsplash.com/photo-1544376798-89aa6b82c6cd", // Someone taking a break
+        "https://images.unsplash.com/photo-1587440871875-191322ee64b0"  // Tea/Coffee focus
     ]
 };
